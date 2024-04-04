@@ -2,11 +2,17 @@ import axios from "axios";
 const API_URL= 'http://localhost:3000/api/'
 const API_URL2= 'http://localhost:3000/api/events'
 const API_URL3 = 'http://localhost:3000/api/users'
+const API_URL4 = 'http://localhost:3000/api/artist"'
 
 
 
 export const bringAllArtists = async () => {
     const res = await axios.get("http://localhost:3000/api/artist") 
+    return res.data
+}
+
+export const bringArtistIds = async () => {
+    const res = await axios.get(`${API_URL4}/${id}`) 
     return res.data
 }
 export const deleteUser = async (token, id) => {
