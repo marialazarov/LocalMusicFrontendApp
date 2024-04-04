@@ -1,5 +1,5 @@
 
-export const Artist = () => {
+export const Events = () => {
 
 
     return (
