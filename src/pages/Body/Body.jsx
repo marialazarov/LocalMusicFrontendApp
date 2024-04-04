@@ -26,7 +26,7 @@ export const Body = () => {
                 <Route path='/myEvents' element={<Events
                  />}></Route>
                
-                <Route path='/everyEvent' element={<AdminEvents />}></Route>
+            
         
             </Routes>
 
