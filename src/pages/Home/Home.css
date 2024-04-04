@@ -1,11 +1,8 @@
 body{
-    color:black;
+   background-color: rgb(102, 102, 241);
     display: flex;
 }
 
-.logohome{
-    margin: auto;
-}
 
 .midiv{
     display: flex;
@@ -13,26 +10,25 @@ body{
     height: 50vh;
     width: 50vw;
     background-color: rgb(0, 0, 0)(255, 1, 1);
-    margin-top: 5em;
-    margin:auto;
+    margin: 5em;
+
 }
 
 h1{
 color: rgb(6, 6, 7);
 }
 .welcome{
-    color: rgb(0, 0, 0);
-    margin: 2em;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(248, 247, 247);
+    margin: 5em;
+font-size: medium;
+ font-family:'Times New Roman', Times, serif;
 }
 
 .apiCallButton{
     pointer-events: stroke;
-    height: 5em;
-    width :12em;
     margin: auto;
-    background-color: rgb(0, 0, 0);
-    border-radius: 50%;
+ 
+    border-radius:4
 }
 .apiCallButton h4{
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -42,3 +38,5 @@ h6{
     font-family: Arial, Helvetica, sans-serif;
     color: rgb(252, 61, 61);
 }
+h4{
+color: black;}

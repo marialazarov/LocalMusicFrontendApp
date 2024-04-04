@@ -5,7 +5,7 @@ import { Artist } from "../Artist/Artist"
 import { Profile } from "../Profile/Profile"
 import { Admin } from "../Admin/Admin"
 import { Events } from "../Events/Events"
-
+import './Body.css'
 
 
 
