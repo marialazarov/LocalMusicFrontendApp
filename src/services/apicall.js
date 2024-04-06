@@ -130,6 +130,18 @@ export const bringEventById = async (userId) => {
 };
 
 
+
+
+export const addEventToUser = async (userId, eventId) => {
+  try {
+    const response = await axios.post(`${API_URL}/events/${userId}`);
+    return response.data; // Puedes devolver los datos de la respuesta si es necesario
+  } catch (error) {
+    throw error; // Maneja el error en el componente que llama a esta función
+  }
+};
+
+
 //login 
  export const userLogin = async (userData) => {
 
