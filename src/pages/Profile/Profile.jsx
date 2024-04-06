@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './Profile.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateUserData, userData1 } from '../userSlice';
-import { updateProfile } from '../../services/apicall';
+import { bringUserById, updateProfile } from '../../services/apicall';
 import { useEffect, useState } from 'react';
 
 
@@ -27,7 +27,7 @@ export const Profile = () => {
             navigate('/register');
         }
     }, []);
-
+        
     const handleUpdateProfile = async () => {
         try {
             const updatedUserData = await updateProfile(token, myid,{

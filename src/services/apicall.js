@@ -12,9 +12,11 @@ export const bringAllArtists = async () => {
 }
 
 export const bringArtistIds = async () => {
-    const res = await axios.get(`${API_URL4}/${id}`) 
+    const res = await axios.get(`${API_URL3}/${id}`) 
     return res.data
 }
+
+
 export const deleteUser = async (token, id) => {
     try {
         const res = await axios.delete(`${API_URL3}/${id}`, {

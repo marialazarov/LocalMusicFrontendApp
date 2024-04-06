@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { bringAllUsers, deleteUser } from "../../services/apicall";
 import { userData1 } from "../userSlice";
 import UserCard from "../../components/UserCard/UserCard";
+import './Admin.css'
 
 
 
@@ -34,7 +35,8 @@ export const Admin = () => {
         if (decoded.userRoles === "client") {
             navigate("/");
         } else {
-            bringAllUsers(token).then((res) => {
+            bringAllUsers
+            (token).then((res) => {
                 setUsers(res);
             });
         }
@@ -46,9 +48,9 @@ export const Admin = () => {
 
     return (
         <div className="adminDesign">
-            <input
+            <input className="buscador"
                 type="text"
-                placeholder="Buscar usuario..."
+                placeholder="Buscar por nombre de usuario"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
             />
