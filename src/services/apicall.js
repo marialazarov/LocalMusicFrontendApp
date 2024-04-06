@@ -17,7 +17,7 @@ export const bringArtistIds = async () => {
 }
 export const deleteUser = async (token, id) => {
     try {
-        const res = await axios.delete(`${API_URL}/${id}`, {
+        const res = await axios.delete(`${API_URL3}/${id}`, {
             headers: {
                 Authorization: "Bearer " + token,
             },
