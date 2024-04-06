@@ -17,7 +17,7 @@ export const Artist = () => {
     }, [artists]);
 
     const viewArtistDetail = (artistId) => {
-        navigate(`/artist/${artistId}`);
+        navigate('/everyevent');
     };
 
     return (
