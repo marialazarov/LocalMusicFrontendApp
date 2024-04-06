@@ -44,6 +44,7 @@ export const Home = () => {
         })
         .catch((err) => console.error('ha ocurrido un error', err))
     };
+   
 
     useEffect(() => {
        
