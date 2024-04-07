@@ -37,22 +37,7 @@ export const MyEvents = () => {
         setSelectedEvent(event);
     };
 
-    const updateEventHandler = async () => {
-        try {
-            await updateEvent(selectedEvent.id, newDate, newLocation);
-            // Actualizar el estado de las citas del usuario después de la modificación
-            const updatedEvents = userEvents.map(event => {
-                if (event.id === selectedEvent.id) {
-                    return { ...event, date: newDate, location: newLocation };
-                }
-                return event;
-            });
-            setUserEvents(updatedEvents);
-            setSelectedEvent(null); // Limpiar la cita seleccionada después de la actualización
-        } catch (error) {
-            console.error("Error al actualizar la cita:", error);
-        }
-    };
+    
 
     return (
         <>
@@ -62,11 +47,11 @@ export const MyEvents = () => {
                     <ul>
                         {userEvents.map(event => (
                             <div className="eventList" key={event.id}>
-                                <p>APPOINTMENT ID: {event.id}</p>
+                               
                                 <p>Date {event.date}</p>
                                 <p>Hour {event.location
                                 }</p>
-                                <button onClick={() => modifyEventHandler(event)}>Modify</button>
+                               
                             </div>
                         ))}
                     </ul>
@@ -75,14 +60,7 @@ export const MyEvents = () => {
                 )}
             </div>
 
-            {selectedEvent && (
-                <div className="modifyForm">
-                    <h3>Modificar Cita</h3>
-                    <input placeholder="Date" type="date" value={newDate} onChange={(e) => setNewDate(e.target.value)} />
-                    <input placeholder="Hour" type="time" value={newHour} onChange={(e) => setNewLocation(e.target.value)} />
-                    <button onClick={updateEventHandler}>Guardar Cambios</button>
-                </div>
-            )}
+    
         </>
     );
 };

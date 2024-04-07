@@ -74,8 +74,7 @@ console.log(decoded)
                     <h4>Username: <input className="newValue" type="text" value={newUserName} onChange={(e) => setNewUserName(e.target.value)} /></h4>
                     <h4>Email: <input className="newValue" type="email" value={newEmail} onChange={(e) => setNewEmail(e.target.value)} /></h4>
                     <br />
-                    <h4>Phone: <input className="newValue" type="text" value={newPhone} onChange={(e) => setNewPhone(e.target.value)} /></h4>
-                    <br />
+            
                     <button onClick={handleUpdateProfile}>Save</button>
                     <button onClick={handleCancelEdit}>Cancel</button>
                     
@@ -87,7 +86,6 @@ console.log(decoded)
                     <br />
                     <h4>Email: {decoded.email}</h4>
                     <br />
-                    <h4>Phone: {decoded.phone}</h4>
                     <br />
                     <button onClick={handleEditProfile}>Edit Profile</button>
                 </>

@@ -3,6 +3,7 @@ const API_URL= 'http://localhost:3000/api/'
 const API_URL2= 'http://localhost:3000/api/events'
 const API_URL3 = 'http://localhost:3000/api/users'
 const API_URL4 = 'http://localhost:3000/api/artist"'
+const API_URL5 = 'http://localhost:3000/api/events/miseventos'
 
 
 
@@ -122,7 +123,7 @@ export const bringUserById = async(id)=>{
 
 export const bringEventById = async (userId) => {
     try {
-        const res = await axios.get(`${API_URL2}/${userId}`);
+        const res = await axios.get(`${API_URL5}/${userId}`);
         return res.data;
     } catch (error) {
         throw error;
