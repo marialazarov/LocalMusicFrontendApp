@@ -15,13 +15,14 @@ export const Profile = () => {
     const token = userRdxData.token;
     const decoded = userRdxData.userData;
     const myid = userRdxData.userData.userId;
-
+   
+console.log(decoded)
     const [isEditing, setIsEditing] = useState(false);
     const [newName, setNewName] = useState(decoded.name);
     const [newEmail, setNewEmail] = useState(decoded.email);
     const [newUserName, setNewUserName] = useState(decoded.username);
 
-    console.log(decoded)
+    
     useEffect(() => {
         if (!decoded) {
             navigate('/register');
@@ -55,7 +56,6 @@ export const Profile = () => {
         // Restaurar los valores originales del usuario al cancelar la edición
         setNewName(decoded.name);
         setNewEmail(decoded.email);
-        setNewPhone(decoded.phone);
         setNewUserName(decoded.username);
     };
 
@@ -95,3 +95,4 @@ export const Profile = () => {
         </div>
     );
 };
+
