@@ -1,4 +1,3 @@
-// Admin.jsx
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -7,10 +6,11 @@ import { userData1 } from "../userSlice";
 import UserCard from "../../components/UserCard/UserCard";
 import './Admin.css'
 
-
-
 export const Admin = () => {
     const [users, setUsers] = useState([]);
+    const [usersPage, setUsersPage] = useState(1);
+    const [usersSkip, setUsersSkip] = useState(3);
+    const [usersCount, setUsersCount] = useState();
     const [searchTerm, setSearchTerm] = useState("");
     const dispatch = useDispatch();
     const userRdxData = useSelector(userData1);
@@ -35,16 +35,40 @@ export const Admin = () => {
         if (decoded.userRoles === "client") {
             navigate("/");
         } else {
-            bringAllUsers
-            (token).then((res) => {
-                setUsers(res);
+            bringAllUsers(token, usersPage, usersSkip).then((res) => {
+                setUsers(res.results);
+                setUsersPage(res.page);
+                setUsersSkip(res.skip);
+                setUsersCount(res.count);
             });
         }
-    }, [decoded, navigate, token]);
+       
+    }, [decoded, token, usersPage, usersSkip, navigate]); // Añade dependencias faltantes
 
-    const filteredUsers = users.filter((user) =>
-        user.username.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+    const getUsersPaginated = async (page, skip) => {
+        const res = await bringAllUsers(token, page, skip);
+        setUsers(res.results);
+        setUsersPage(res.page);
+        setUsersSkip(res.skip);
+        setUsersCount(res.count);
+    };
+
+    const buttonHandlerPrev = () => {
+        if (usersPage <= 1) {
+            return; // Cambiado a return para salir de la función si ya estamos en la primera página
+        }
+        const page = usersPage - 1;
+        getUsersPaginated(page, usersSkip);
+    };
+
+    const buttonHandlerNext = () => {
+        const page = usersPage + 1;
+        getUsersPaginated(page, usersSkip);
+    };
+
+   const filteredUsers = (users || []).filter(user =>
+      user.username.toLowerCase().includes(searchTerm.toLowerCase())
+   );
 
     return (
         <div className="adminDesign">
@@ -56,7 +80,8 @@ export const Admin = () => {
             />
             <div className="userList">
                 {filteredUsers.length > 0 ? (
-                    filteredUsers.map((user) => (
+                    filteredUsers
+                    .map((user) => (
                         <UserCard
                             key={user.id}
                             id={user.id}
@@ -69,6 +94,11 @@ export const Admin = () => {
                 ) : (
                     <p>No se encontraron usuarios</p>
                 )}
+            </div>
+            {/* Agrega los botones prev y next */}
+            <div>
+                <button onClick={buttonHandlerPrev} disabled={usersPage <= 1}>Prev</button>
+                <button onClick={buttonHandlerNext} disabled={usersPage * usersSkip >= usersCount}>Next</button>
             </div>
         </div>
     );

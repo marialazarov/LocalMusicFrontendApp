@@ -1,5 +1,5 @@
 import axios from "axios";
-const API_URL= 'http://localhost:3000/api/'
+const API_URL= 'http://localhost:3000'
 const API_URL2= 'http://localhost:3000/api/events'
 const API_URL3 = 'http://localhost:3000/api/users'
 const API_URL4 = 'http://localhost:3000/api/artist"'
@@ -45,14 +45,14 @@ export const deleteAppointment = async (token, id) => {
 };
 
 //acceder con autorización solo
-export const bringAllUsers = async (token) => {
+export const bringAllUsers = async (token, page, skip) => {
     const config = {
         headers: {
             Authorization: "Bearer " + token
         }
     };
-    const res = await axios.get("http://localhost:3000/api/users", config);
-    return res.data.results;
+    const res = await axios.get(`${API_URL}/api/users/getAllPaginated?page=${page}&skip=${skip}`, config);
+    return res.data;
 };
 
 export const bringAllEvents = async (token) => {
