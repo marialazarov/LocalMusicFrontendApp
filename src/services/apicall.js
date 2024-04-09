@@ -31,20 +31,8 @@ export const deleteUser = async (token, id) => {
     }
 };
 
-export const deleteAppointment = async (token, id) => {
-    try {
-        const res = await axios.delete(`${API_URL2}/${id}`, {
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
-        });
-        return res.data; 
-    } catch (error) {
-        throw new Error(error.response.data.message || "Error al eliminar la cita");
-    }
-};
 
-//acceder con autorización solo
+//Acceder con autorización solo y paginación incluida
 export const bringAllUsers = async (token, page, skip) => {
     const config = {
         headers: {
@@ -121,15 +109,23 @@ export const bringUserById = async(id)=>{
     //bringUsersAppointments
 }
 
-export const bringEventById = async (userId) => {
+
+
+export const bringEventById = async (token, id) => {
+    const config = {
+        headers: {
+            Authorization: 'Bearer ' + token
+        }
+    };
+
     try {
-        const res = await axios.get(`${API_URL5}/${userId}`);
+        const res = await axios.get(`${API_URL5}/${id}`, config);
         return res.data;
     } catch (error) {
-        throw error;
+        console.error("Error al obtener los eventos:", error);
+        return [];
     }
 };
-
 
 
 
