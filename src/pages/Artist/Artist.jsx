@@ -15,14 +15,15 @@ export const Artist = () => {
             }).catch(error => console.error("Error al traer los artistas:", error));
         }
     }, [artists]);
+
     const navigateToMyEvents = () => {
-        navigate('/myevents');
+        navigate('/everyevent');
       };
 
 
-    const viewArtistDetail = (artistId) => {
-        navigate('/everyevent');
-    };
+   // const viewArtistDetail = (artistId) => {
+    //    navigate('/everyevent');
+   // };
 
     return (
         <div>
