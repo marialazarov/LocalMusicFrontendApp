@@ -15,6 +15,10 @@ export const Artist = () => {
             }).catch(error => console.error("Error al traer los artistas:", error));
         }
     }, [artists]);
+    const navigateToMyEvents = () => {
+        navigate('/myevents');
+      };
+
 
     const viewArtistDetail = (artistId) => {
         navigate('/everyevent');
@@ -31,6 +35,7 @@ export const Artist = () => {
                                 name={artist.name}
                                 music={artist.music}
                                 genre={artist.genre}
+                                handler={navigateToMyEvents}
                             />
                         </div>
                     ))
