@@ -1,9 +1,9 @@
-// EveryEvent.js
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { bringAllEvents } from "../../services/apicall";
 import EventCard from "../../components/EventCard/EventCard";
-import './Events.css'
+import './Events.css';
+
 export const Events = () => {
   const [events, setEvents] = useState([]);
   const navigate = useNavigate();
@@ -11,27 +11,40 @@ export const Events = () => {
   useEffect(() => {
     if (events.length === 0) {
       bringAllEvents().then((eventsData) => {
-        setEvents(eventsData); // Asumiendo que los eventos están en el formato correcto
+        console.log("Datos recibidos de bringAllEvents:", eventsData);
+        const uniqueEvents = filterUniqueEvents(eventsData);
+        setEvents(uniqueEvents);
       }).catch(error => console.error("Error al traer los eventos:", error));
     }
   }, [events]);
 
   const viewEventDetail = (eventId) => {
-    // Implementa la navegación al detalle del evento si es necesario
+    navigate('/createnewevent');
+  };
+
+  const filterUniqueEvents = (eventsData) => {
+    const uniqueEvents = [];
+    const seenArtistIds = new Set();
+    eventsData.forEach(event => {
+      if (!seenArtistIds.has(event.artist_id)) {
+        uniqueEvents.push(event);
+        seenArtistIds.add(event.artist_id);
+      }
+    });
+    return uniqueEvents;
   };
 
   return (
     <div>
-
-        <h1 className="titulo"> TODOS LOS EVENTOS PRÓXIMOS</h1>
+      <h1 className="titulo"> TODOS LOS EVENTOS PRÓXIMOS</h1>
       <div className="events">
         {events.length > 0 ? (
-          events.map((events) => (
-            <div key={events.id} className="event-card" onClick={() => viewEventDetail(event.id)}>
+          events.map((event) => (
+            <div key={event.id} className="event-card" onClick={() => viewEventDetail(event.id)}>
               <EventCard
-                date={events.date}
-                location={events.location}
-                // Agrega más propiedades del evento según sea necesario
+                date={event.date}
+                location={event.location}
+                artist_id={event.artist_id}
               />
             </div>
           ))
@@ -42,5 +55,3 @@ export const Events = () => {
     </div>
   );
 };
-
-export default Events;
