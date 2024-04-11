@@ -11,7 +11,7 @@ import { useSelector } from "react-redux";
 import { userData1 } from "../userSlice";
 
 export const CreateEvent = () => {
-    const location = useLocation(); // Obtiene la ubicación actual
+    const dataevent = useLocation(); // Obtiene la ubicación actual
     const { eventId } = useParams(); // Obtiene el ID del evento de la URL
     const navigate = useNavigate();
     const [eventData, setEventData] = useState({
@@ -21,11 +21,11 @@ export const CreateEvent = () => {
       location: ""
     });
     const [registrationSuccess, setRegistrationSuccess] = useState(false);
-console.log(location.state.eventData
+console.log(dataevent.state.eventData
     )
     useEffect(() => {
-      if (location.state && location.state.eventData) {
-        const { date, location, user_id } = location.state.eventData;
+      if (dataevent.state && dataevent.state.eventData) {
+        const { date, location, user_id } = dataevent.state.eventData;
         setEventData({
           ...eventData,
           user_id,
@@ -67,21 +67,13 @@ console.log(location.state.eventData
 
           <Form onSubmit={handleSubmit}>
             <Row className="mb-2">
-              <Form.Group as={Col} md="12" controlId="validationCustom01">
-                <CustomInput
-                  type="text"
-                  text="ID del Evento"
-                  name="eventId"
-                  value={eventId}
-                  readOnly
-                />
-              </Form.Group>
+           
               <Form.Group as={Col} md="12" controlId="validationCustom02">
                 <CustomInput
                   type="datetime-local"
                   text="Fecha y Hora"
                   name="date"
-                  value={eventData.date}
+                  value={dataevent.state.eventData.date}
                   readOnly
                 />
               </Form.Group>
