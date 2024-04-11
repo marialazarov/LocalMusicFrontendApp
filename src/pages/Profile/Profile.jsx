@@ -2,7 +2,7 @@
 import { useNavigate } from 'react-router-dom';
 import './Profile.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateUserData, userData1 } from '../userSlice';
+import { logout, updateUserData, userData1 } from '../userSlice';
 import { bringUserById, updateProfile } from '../../services/apicall';
 import { useEffect, useState } from 'react';
 
@@ -49,6 +49,7 @@ console.log(decoded)
 
     const handleEditProfile = () => {
         setIsEditing(true);
+        
     };
     
     const handleCancelEdit = () => {

@@ -55,11 +55,14 @@ export const Home = () => {
 
     return (
         <>
-            <h1 className="welcome">LOCAL MUSIC EXPERIENCE</h1>
+            <h1 className="welcome">TALENTO LOCAL</h1>
+    
             <div className="midiv">
+            <img className="corazón" src="https://images.vexels.com/media/users/3/141429/isolated/preview/20c78a998fb4436267015fd554301480-corazon-alado.png"></img>
                 <Form>
+                <div className="midiv">
                     <Form.Group className="mb-3" controlId="formGroupEmail">
-                        <Form.Label>Email address</Form.Label>
+                        
                         <Form.Control 
                             type="email" 
                             placeholder="Enter email" 
@@ -69,7 +72,7 @@ export const Home = () => {
                         />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formGroupPassword">
-                        <Form.Label>Password</Form.Label>
+                       
                         <Form.Control 
                             type="password" 
                             placeholder="Password" 
@@ -78,11 +81,13 @@ export const Home = () => {
                             onChange={inputHandler} 
                         />
                     </Form.Group>
+                    <Button variant="dark"  onClick={buttonHandler}>
+                   OKEY
+                </Button>
+                    </div>
                 </Form>
 
-                <Button variant="light" className="apiCallButton" onClick={buttonHandler}>
-                   Let's Go
-                </Button>
+              
             </div>
         </>
     );

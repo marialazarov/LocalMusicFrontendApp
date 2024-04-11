@@ -27,35 +27,35 @@ export const Header = () => {
   } // para borrar los tokens y los datos del usuario una vez hace click en logout
 
   return (
-    <Navbar collapseOnSelect expand="lg"  className="bg-body-tertiary">
-      <Container>
-        <Navbar.Brand href=""><h4>WELCOME</h4></Navbar.Brand>
+    <Navbar collapseOnSelect expand="lg"  className="bg-body-tertiary" id='yuju'>
+      
+        <Navbar.Brand href=""><h4>BIENVENIDO</h4></Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="home">Home</Nav.Link>
-            <Nav.Link href="artist">Artists</Nav.Link>
-            <NavDropdown title="My Account" id="collapsible-nav-dropdown">
+            <Nav.Link href="home"><h4>Home</h4></Nav.Link>
+            <Nav.Link href="artist"><h4>Artists</h4></Nav.Link>
+            <NavDropdown title="Mi cuenta" id="collapsible-nav-dropdown">
               {!userRdxData.token ? (
                 <>
-                  <NavDropdown.Item href="home">Login</NavDropdown.Item>
-                  <NavDropdown.Item href="register">Register</NavDropdown.Item>
+                  <NavDropdown.Item className="navdrop" href="home"><h4>Entrar</h4></NavDropdown.Item>
+                  <NavDropdown.Item className="navdrop" href="register"><h4>Registrarse</h4></NavDropdown.Item>
                 </>
               ) : decoded.userRoles =='admin' ? (
                 <>
-                <NavDropdown.Item href="profile">Profile</NavDropdown.Item>
-                <NavDropdown.Item href="admin">Users</NavDropdown.Item>
-                <NavDropdown.Item href="everyevent">All the Events Around You</NavDropdown.Item>
-                 <NavDropdown.Item href="myEvents">My Events</NavDropdown.Item>
-                 <NavDropdown.Item href="home" onClick={() => logMeOut()}>Log Out</NavDropdown.Item>
+                <NavDropdown.Item  className="navdrop" href="profile"><h4>Perfil</h4></NavDropdown.Item>
+                <NavDropdown.Item  className="navdrop" href="admin"><h4>Lista de usuarios</h4></NavDropdown.Item>
+                <NavDropdown.Item className="navdrop" href="everyevent"><h4>¿Qué eventos hay en la ciudad?</h4></NavDropdown.Item>
+                 <NavDropdown.Item className="navdrop" href="myEvents"><h4>Mis eventos</h4></NavDropdown.Item>
+                 <NavDropdown.Item className="navdrop" href="home" onClick={() => logMeOut()}>Log Out</NavDropdown.Item>
                 
                 </>
               ): (
                 <>
 
-                <NavDropdown.Item href="profile">Profile</NavDropdown.Item>
-                <NavDropdown.Item href="myEvents">My Events</NavDropdown.Item>
-                <NavDropdown.Item href="everyevent">All the Events Around You</NavDropdown.Item>
+                <NavDropdown.Item href="profile"><h3>Perfil</h3></NavDropdown.Item>
+                <NavDropdown.Item href="myEvents"><h3>Mis Eventos</h3></NavDropdown.Item>
+                <NavDropdown.Item href="everyevent"><h3>¿Qué eventos hay en la ciudad?</h3></NavDropdown.Item>
                 <NavDropdown.Item href="home" onClick={() => logMeOut()}>Log Out</NavDropdown.Item>
                 
                 
@@ -67,7 +67,7 @@ export const Header = () => {
            
           </Nav>
         </Navbar.Collapse>
-      </Container>
+      
     </Navbar>
   );
 };

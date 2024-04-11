@@ -1,7 +1,14 @@
-.bg-body-tertiary{
-    color: rgb(242, 126, 126) !important;}
-
-    h4{
+h4{
+        color: rgb(8, 8, 8)
+        ;
         font-size: medium;
         font-family:'Times New Roman', Times, serif;
     }
+h3{
+
+color: blue;}
+body{
+ background-color: black;
+
+}
+
