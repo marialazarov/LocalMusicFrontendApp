@@ -7,6 +7,7 @@ import { Admin } from "../Admin/Admin"
 import { Events } from "../Events/Events"
 import './Body.css'
 import { MyEvents } from "../MyEvents/MyEvents"
+import { CreateEvent } from "../CreateEvent/CreateEvent"
 
 
 
@@ -21,10 +22,11 @@ export const Body = () => {
                 <Route path='/register' element={<Register />} />
                 <Route path='/profile' element={<Profile />} />
                 <Route path='/artist' element={<Artist />}></Route>
-        
                 <Route path='/admin' element={<Admin />}></Route>
                 <Route path='/everyEvent' element={<Events />}></Route>
                 <Route path='/myEvents' element={<MyEvents />}
+                 ></Route>
+                   <Route path='/CreateEvent' element={<CreateEvent />}
                  ></Route>
                
             

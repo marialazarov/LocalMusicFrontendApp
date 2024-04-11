@@ -22,15 +22,12 @@ export const Events = () => {
     }
   }, [events]);
 
-  const viewEventDetail = (eventId) => {
-    navigate('/createnewevent');
-  };
 
   const showAlertAndRedirect = () => {
     setShowAlert(true);
     setTimeout(() => {
       setShowAlert(false);
-      navigate('/');
+      navigate('/createEvent');
     }, 6000);
   };
 
