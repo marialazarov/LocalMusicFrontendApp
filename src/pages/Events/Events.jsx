@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { bringAllEvents } from "../../services/apicall";
 import EventCard from "../../components/EventCard/EventCard";
-import './Events.css'
+import './Events.css';
 import Alert from 'react-bootstrap/Alert';
+
 export const Events = () => {
   const [events, setEvents] = useState([]);
   const [showAlert, setShowAlert] = useState(false);
@@ -23,14 +24,15 @@ export const Events = () => {
   }, [events]);
 
 
-  const showAlertAndRedirect = () => {
+  const showAlertAndRedirect = (eventId, eventData) => {
     setShowAlert(true);
     setTimeout(() => {
       setShowAlert(false);
-      navigate('/createEvent');
+      navigate(`/createEvent/${eventId}`, { state: { eventData } }); // Pasa el ID del evento y los datos del evento en la ubicación
     }, 6000);
   };
-
+  
+  
   const filterUniqueEvents = (eventsData) => {
     const uniqueEvents = [];
     const seenArtistIds = new Set();
@@ -54,7 +56,7 @@ export const Events = () => {
                 date={event.date}
                 location={event.location}
                 artist_id={event.artist_id}
-                handler={showAlertAndRedirect}
+                handler={() => showAlertAndRedirect(event.id, event)}
               />
             </div>
           ))

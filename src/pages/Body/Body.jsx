@@ -26,8 +26,11 @@ export const Body = () => {
                 <Route path='/everyEvent' element={<Events />}></Route>
                 <Route path='/myEvents' element={<MyEvents />}
                  ></Route>
-                   <Route path='/CreateEvent' element={<CreateEvent />}
-                 ></Route>
+                    <Route
+        path="/createEvent/:eventId" // Define el path con un parámetro dinámico :eventId
+        element={<CreateEvent />} // Renderiza el componente CreateEvent cuando se acceda a esta ruta
+      />
+                
                
             
         

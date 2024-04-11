@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { CustomInput } from "../../components/CustomInput/CustomInput";
 import { createEvent } from "../../services/apicall"; 
-import { useNavigate } from "react-router-dom";
+import { useLocation, useParams, useNavigate } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
@@ -11,28 +11,32 @@ import { useSelector } from "react-redux";
 import { userData1 } from "../userSlice";
 
 export const CreateEvent = () => {
-    const userRdxData = useSelector(userData1);
-    const token = userRdxData.token;
-    const decoded = userRdxData.userData;
-    const myid = userRdxData.userData.userId;
-  const navigate = useNavigate();
-  const [eventData, setEventData] = useState({
-    user_id: myid,
-    artist_id: "",
-    date: "",
-    location: ""
-  });
-  console.log(myid)
+    const location = useLocation(); // Obtiene la ubicación actual
+    const { eventId } = useParams(); // Obtiene el ID del evento de la URL
+    const navigate = useNavigate();
+    const [eventData, setEventData] = useState({
+      user_id: "",
+      artist_id: "",
+      date: "",
+      location: ""
+    });
+    const [registrationSuccess, setRegistrationSuccess] = useState(false);
+console.log(location.state.eventData
+    )
+    useEffect(() => {
+      if (location.state && location.state.eventData) {
+        const { date, location, user_id } = location.state.eventData;
+        setEventData({
+          ...eventData,
+          user_id,
+          date,
+          location
+        });
+      }
+    }, [location.state]);
 
-  const [validated, setValidated] = useState(false);
-  const [registrationSuccess, setRegistrationSuccess] = useState(false);
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.stopPropagation();
-    } else {
+    const handleSubmit = async (event) => {
+      event.preventDefault();
       try {
         await createEvent(eventData);
         setRegistrationSuccess(true);
@@ -42,65 +46,69 @@ export const CreateEvent = () => {
       } catch (error) {
         console.error("Error al registrar el evento:", error);
       }
-    }
-    setValidated(true);
-  };
+    };
 
-  const inputHandler = (event) => {
-    setEventData({
-      ...eventData,
-      [event.target.name]: event.target.value
-    });
-  };
+    const inputHandler = (event) => {
+      setEventData({
+        ...eventData,
+        [event.target.name]: event.target.value
+      });
+    };
 
-  return (
-    <>
-      <h1 className="tituloevento">Registro de Evento</h1>
-      <div className="registro-evento">
-        {registrationSuccess && (
-          <div className="registration-success-popup">
-            <p>¡Evento registrado correctamente!</p>
-          </div>
-        )}
+    return (
+      <>
+        <h1 className="tituloevento">Registro de Evento</h1>
+        <div className="registro-evento">
+          {registrationSuccess && (
+            <div className="registration-success-popup">
+              <p>¡Evento registrado correctamente!</p>
+            </div>
+          )}
 
-        <Form noValidate validated={validated} onSubmit={handleSubmit}>
-          <Row className="mb-2">
-            <Form.Group as={Col} md="12" controlId="validationCustom01">
-              <CustomInput
-                type="datetime-local"
-                text="Fecha y Hora"
-                name="date"
-                value={eventData.date}
-                handler={inputHandler}
-              />
-              <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-            </Form.Group>
-            <Form.Group as={Col} md="12" controlId="validationCustom02">
-              <CustomInput
-                placeholder="Ubicación"
-                type="text"
-                name="location"
-                value={eventData.location}
-                handler={inputHandler}
-              />
-              <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-            </Form.Group>
-            <Form.Group as={Col} md="12" controlId="validationCustom02">
-              <CustomInput
-                placeholder=" Atist Id"
-                type="number"
-                name="artist_id"
-                value={eventData.artist_id}
-                handler={inputHandler}
-              />
-              <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-            </Form.Group>
-          </Row>
-          <Button type="submit">Register Event</Button>
-        </Form>
-      </div>
-    </>
-  );
+          <Form onSubmit={handleSubmit}>
+            <Row className="mb-2">
+              <Form.Group as={Col} md="12" controlId="validationCustom01">
+                <CustomInput
+                  type="text"
+                  text="ID del Evento"
+                  name="eventId"
+                  value={eventId}
+                  readOnly
+                />
+              </Form.Group>
+              <Form.Group as={Col} md="12" controlId="validationCustom02">
+                <CustomInput
+                  type="datetime-local"
+                  text="Fecha y Hora"
+                  name="date"
+                  value={eventData.date}
+                  readOnly
+                />
+              </Form.Group>
+              <Form.Group as={Col} md="12" controlId="validationCustom03">
+                <CustomInput
+                  placeholder="Ubicación"
+                  type="text"
+                  name="location"
+                  value={eventData.location}
+                  readOnly
+                />
+              </Form.Group>
+              <Form.Group as={Col} md="12" controlId="validationCustom04">
+                <CustomInput
+                  placeholder="ID del Artista"
+                  type="number"
+                  name="artist_id"
+                  value={eventData.artist_id}
+                  onChange={inputHandler}
+                />
+              </Form.Group>
+            </Row>
+            <Button type="submit">Registrar Evento</Button>
+          </Form>
+        </div>
+      </>
+    );
 };
 
 export default CreateEvent;
