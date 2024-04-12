@@ -8,6 +8,7 @@ import { Events } from "../Events/Events"
 import './Body.css'
 import { MyEvents } from "../MyEvents/MyEvents"
 import { CreateEvent } from "../CreateEvent/CreateEvent"
+import './Body.css'
 
 
 

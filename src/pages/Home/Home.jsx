@@ -8,7 +8,8 @@ import { userLogin } from "../../services/apicall";
 import { CustomInput } from "../../components/CustomInput/CustomInput";
 import Button from 'react-bootstrap/Button'; // Importar el componente Button de Bootstrap
 import Form from 'react-bootstrap/Form'; // Importar el componente Form de Bootstrap
-
+import { Icon } from "@iconify/react";
+import './Home.css'
 //VISTA login
 export const Home = () => {
     const [artists, setArtists] = useState([]);
@@ -58,7 +59,7 @@ export const Home = () => {
             <h1 className="welcome">TALENTO LOCAL</h1>
     
             <div className="midiv">
-            <img className="corazón" src="https://images.vexels.com/media/users/3/141429/isolated/preview/20c78a998fb4436267015fd554301480-corazon-alado.png"></img>
+           
                 <Form>
                 <div className="midiv">
                     <Form.Group className="mb-3" controlId="formGroupEmail">
@@ -81,8 +82,10 @@ export const Home = () => {
                             onChange={inputHandler} 
                         />
                     </Form.Group>
-                    <Button variant="dark"  onClick={buttonHandler}>
-                   OKEY
+                    
+                    <Button className="botonmicro"       variant="light"  onClick={buttonHandler}>
+                    <Icon icon="icon-park-solid:entertainment" />
+                   
                 </Button>
                     </div>
                 </Form>

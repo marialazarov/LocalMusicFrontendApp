@@ -29,7 +29,7 @@ export const Header = () => {
   return (
     <Navbar collapseOnSelect expand="lg"  className="bg-body-tertiary" id='yuju'>
       
-        <Navbar.Brand href=""><h4>BIENVENIDO</h4></Navbar.Brand>
+        <Navbar.Brand href=""></Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
