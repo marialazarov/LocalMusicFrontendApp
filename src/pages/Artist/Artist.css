@@ -17,8 +17,11 @@ body{
     margin: auto;
 }
 
-h1{
-color: rgb(6, 6, 7);
+.titulo2{
+    margin-top: 1em;
+    font-size: large;
+    font-family: "Honk", system-ui;
+    color: rgb(240, 240, 255);
 }
 
 .artistas{

@@ -10,7 +10,7 @@ export const ArtistCard = ({img,name,genre,music,events,id,handler}) => {
         <Card.Text className='text'>
          El artista {name}, con un sonido que se encuentra en el género  {genre}. Podrás encontrarlo en la ciudad en las próximas fechas. ¡No te lo pierdas!
         </Card.Text>
-        <Button variant="light" onClick={handler}>Conciertos </Button>
+        <Button  className='boton' variant="light" onClick={handler}>Conciertos </Button>
       </Card.Body>
     </Card>
   );

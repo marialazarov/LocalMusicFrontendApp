@@ -1,0 +1,46 @@
+.create-event-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.registro-evento {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.registration-success-popup {
+    background-color: #111111;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.location {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.date {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.input-label {
+    font-size: medium;
+    margin-bottom: 2em;
+}
+
+.submit-button {
+    margin-top: 20px;
+  margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ 
+}

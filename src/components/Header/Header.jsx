@@ -34,7 +34,7 @@ export const Header = () => {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="home"><h4>Home</h4></Nav.Link>
-            <Nav.Link href="artist"><h4>Artists</h4></Nav.Link>
+            <Nav.Link href="artist"><h4>Artistas</h4></Nav.Link>
             <NavDropdown title="Mi cuenta" id="collapsible-nav-dropdown">
               {!userRdxData.token ? (
                 <>

@@ -9,7 +9,7 @@ export const ProfileCard = ({img,name,username,email,role,id, handler1,handler2}
       <Card.Body>
         <Card.Title><h1>Hola, {name} !</h1></Card.Title>
         <Card.Text className='text'>
-          Eres el usuario con el id número {id}. 
+          Eres el usuario con el id número {id}. <br/>
           Es el número que te servira de identificación
           para asistir a los eventos 
          de tus artistas locales favoritos.

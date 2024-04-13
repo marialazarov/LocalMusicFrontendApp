@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./Artist.css";
 import { ArtistCard } from "../../components/ArtistCard/ArtistCard";
 import { useNavigate } from "react-router-dom";
@@ -35,15 +35,7 @@ export const Artist = () => {
 
     return (
         <div>
-               <div className="pagination">
-                {artists.length > 0 && (
-                    <div className="buttonContainer">
-                        {Array.from({ length: Math.ceil(artists.length / artistsPerPage) }, (_, i) => (
-                            <Button key={i + 1} className="pagination-button" onClick={() => paginate(i + 1)}>{i + 1}</Button>
-                        ))}
-                    </div>
-                )}
-            </div>
+            <h1 className="titulo2">ARTISTAS EN LA CIUDAD</h1>
             <div className="artistas">
                 {currentArtists.length > 0 ? (
                     currentArtists.map((artist) => (
@@ -61,7 +53,16 @@ export const Artist = () => {
                     <p>No hay artistas disponibles.</p>
                 )}
             </div>
-    
+
+            <div className="pagination">
+                {artists.length > 0 && (
+                    <div className="buttonContainer">
+                        {Array.from({ length: Math.ceil(artists.length / artistsPerPage) }, (_, i) => (
+                            <Button key={i + 1} variant="light" className="pagination-button" onClick={() => paginate(i + 1)}>{i + 1}</Button>
+                        ))}
+                    </div>
+                )}
+            </div>
         </div>
     );
 };
