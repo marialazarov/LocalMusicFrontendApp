@@ -9,7 +9,6 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import ProfileCard from '../../components/ProfileCard/ProfileCard';
 import Button from 'react-bootstrap/Button';
 import { Icon } from '@iconify/react';
-
 export const Profile = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -19,7 +18,8 @@ export const Profile = () => {
     const myid = userRdxData.userData.userId;
 
     console.log(decoded);
-    
+    const [showUpdateProfile, setShowUpdateProfile] = useState(false);
+
     const [isEditing, setIsEditing] = useState(false);
     const [newName, setNewName] = useState(decoded.name);
     const [newEmail, setNewEmail] = useState(decoded.email);
@@ -30,7 +30,7 @@ export const Profile = () => {
             navigate('/register');
         }
     }, []);
-        
+
     const handleUpdateProfile = async () => {
         try {
             const updatedUserData = await updateProfile(token, myid, {
@@ -41,6 +41,7 @@ export const Profile = () => {
             dispatch(updateUserData(updatedUserData));
             setIsEditing(false);
             console.log("Perfil actualizado correctamente:", updatedUserData);
+            setShowUpdateProfile(false); // Oculta el modal después de actualizar el perfil
         } catch (error) {
             console.error("Error al actualizar el perfil:", error);
         }
@@ -49,22 +50,23 @@ export const Profile = () => {
     const handleEditProfile = () => {
         setIsEditing(true);
     };
-    
+
     const handleCancelEdit = () => {
         setIsEditing(false);
         // Restaurar los valores originales del usuario al cancelar la edición
         setNewName(decoded.name);
         setNewEmail(decoded.email);
         setNewUserName(decoded.username);
+        setShowUpdateProfile(false); // Oculta el modal al cancelar la edición
     };
-
 
     const navigateToArtists = () => {
         navigate('/artist');
-      };
-      const navigateToMyEvents = () => {
+    };
+
+    const navigateToMyEvents = () => {
         navigate('/everyevent');
-      };
+    };
 
     return (
         <div className="profileDesign">
@@ -72,29 +74,32 @@ export const Profile = () => {
                 name={decoded.name}
                 username={decoded.username}
                 email={decoded.email}
-                role={decoded.role}
+                role={decoded.userRoles}
                 id={myid}
-                handler2 = {navigateToArtists
-                }
+                handler2={navigateToArtists}
                 handler1={navigateToMyEvents}
-               
-
             />
+            {showUpdateProfile && (
+                <div className="modalBackground">
+                    <div className="updateProfileModal">
+                        <div className='updateprofile'>
+                            <input className="newValue" type="text" value={newName} onChange={(e) => setNewName(e.target.value)} />
+                            <input className="newValue" type="text" value={newUserName} onChange={(e) => setNewUserName(e.target.value)} />
+                            <input className="newValue" type="email" value={newEmail} onChange={(e) => setNewEmail(e.target.value)} />
+                            <div className="buttonContainer">
+                                <Button variant='dark' onClick={handleUpdateProfile}><Icon icon="material-symbols:check-box-outline" /></Button>
+                                <div className="buttonSpacer"></div>
+                                <Button variant='dark' onClick={handleCancelEdit}><Icon icon="material-symbols:cancel-outline" /></Button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
             <div>
-                {isEditing ? (
-                    <>
-                        <input className="newValue" type="text" value={newName} onChange={(e) => setNewName(e.target.value)} />
-                        <input className="newValue" type="text" value={newUserName} onChange={(e) => setNewUserName(e.target.value)} />
-                        <input className="newValue" type="email" value={newEmail} onChange={(e) => setNewEmail(e.target.value)} />
-                        <button onClick={handleUpdateProfile}>Guardar</button>
-                        <button onClick={handleCancelEdit}>Cancelar</button>
-                    </>
-                ) : (
-                    <>
-            <Button className="editarperfil" variant="light"  onClick={handleEditProfile}>
-            <Icon icon="bx:edit" />
-            </Button>
-                    </>
+                {!showUpdateProfile && (
+                    <Button className="editarperfil" variant="light" onClick={() => setShowUpdateProfile(true)}>
+                        <Icon icon="bx:edit" />
+                    </Button>
                 )}
             </div>
         </div>

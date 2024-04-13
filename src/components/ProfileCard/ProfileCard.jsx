@@ -17,9 +17,9 @@ export const ProfileCard = ({img,name,username,email,role,id, handler1,handler2}
         </Card.Text>
       </Card.Body>
       <ListGroup className="list-group-flush">
-        <ListGroup.Item>{username}</ListGroup.Item>
-        <ListGroup.Item>{email}</ListGroup.Item>
-        <ListGroup.Item>{role}</ListGroup.Item>
+        <ListGroup.Item className='username'>USERNAME<br /> {username}</ListGroup.Item>
+        <ListGroup.Item className='username'>EMAIL <br/>  {email}</ListGroup.Item>
+        <ListGroup.Item className='username'>ROLE <br/>{role}</ListGroup.Item>
       </ListGroup>
       <Card.Body>
         <Card.Link  className='link'  onClick={handler1}>Mis eventos</Card.Link>
