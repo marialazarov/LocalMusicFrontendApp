@@ -4,15 +4,15 @@ import './ProfileCard.css'
 
 export const ProfileCard = ({img,name,username,email,role,id, handler1,handler2}) => {
   return (
-    <Card style={{ width: '18rem' }}>
+    <Card className='profilecard' style={{ width: '18rem' }}>
       <Card.Img variant="top" src="https://www.parlante.cl/wp-content/uploads/2019/04/1975-live11.png" />
       <Card.Body>
-        <Card.Title>Hola, {name} !</Card.Title>
-        <Card.Text>
-          Eres el usuario con el id número {id}. <br/>
-          Es el número que te servira de identificación <br/>
-          para asistir a los eventos <br/>
-         de tus artistas locales favoritos
+        <Card.Title><h1>Hola, {name} !</h1></Card.Title>
+        <Card.Text className='text'>
+          Eres el usuario con el id número {id}. 
+          Es el número que te servira de identificación
+          para asistir a los eventos 
+         de tus artistas locales favoritos.
 
         </Card.Text>
       </Card.Body>

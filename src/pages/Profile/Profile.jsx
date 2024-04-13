@@ -77,7 +77,7 @@ export const Profile = () => {
                 handler2 = {navigateToArtists
                 }
                 handler1={navigateToMyEvents}
-
+               
 
             />
             <div>
