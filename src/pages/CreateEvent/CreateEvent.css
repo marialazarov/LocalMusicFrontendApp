@@ -32,8 +32,19 @@
 }
 
 .input-label {
-    font-size: medium;
-    margin-bottom: 2em;
+    margin-bottom: em;
+  margin: auto;
+  margin-bottom: 1em;
+    width: 10em;
+    font-family: "Anton", sans-serif;
+    font-size: small;
+    color: white;
+    text-shadow: -1px -1px 0 #000,  
+                      1px -1px 0 #000,
+                     -1px  1px 0 #000,
+                      1px  1px 0 #000;
+
+    
 }
 
 .submit-button {
@@ -43,4 +54,10 @@
     justify-content: center;
     align-items: center;
  
+}
+
+.tituloevento{
+    margin-top: 2em;
+    font-size: large;
+    font-family: "Honk", system-ui;
 }

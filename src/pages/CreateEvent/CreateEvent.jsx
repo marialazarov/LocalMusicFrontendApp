@@ -72,7 +72,7 @@ export const CreateEvent = () => {
                     </Row>
                     <Row className="mb-2">
                         <Col md="12">
-                            <Button type="submit" className="submit-button">
+                            <Button variant="light" type="submit" className="submit-button">
                                 <Icon icon="gravity-ui:hand-ok" />
                             </Button>
                         </Col>

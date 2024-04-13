@@ -3,14 +3,16 @@ import { useNavigate } from "react-router-dom";
 import { bringAllEvents } from "../../services/apicall";
 import EventCard from "../../components/EventCard/EventCard";
 import './Events.css';
-import Alert from 'react-bootstrap/Alert';
 import Button from 'react-bootstrap/Button';
+import Alert from 'react-bootstrap/Alert';
+import Modal from 'react-bootstrap/Modal';
+import { Icon } from "@iconify/react";
 
 export const Events = () => {
     const [events, setEvents] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [eventsPerPage] = useState(5); // Define el número de eventos por página
-    const [showAlert, setShowAlert] = useState(false);
+    const [showAlert, setShowAlert] = useState(false); // Estado para mostrar/ocultar la alerta
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -22,10 +24,10 @@ export const Events = () => {
     }, [events]);
 
     const showAlertAndRedirect = (eventId, eventData) => {
-        setShowAlert(true);
+        setShowAlert(true); // Muestra la alerta cuando se hace clic en el evento
         setTimeout(() => {
-            setShowAlert(false);
-            navigate(`/createEvent/${eventId}`, { state: { eventData } }); // Pasa el ID del evento y los datos del evento en la ubicación
+            setShowAlert(false); // Oculta la alerta después de 6 segundos
+            navigate(`/createEvent/${eventId}`, { state: { eventData } }); // Redirige a la página de creación de eventos con los datos del evento
         }, 6000);
     };
 
@@ -67,19 +69,19 @@ export const Events = () => {
                     </div>
                 )}
             </div>
-            {showAlert && (
-                <Alert variant="success">
-                    <Alert.Heading>GRACIAS POR APOYAR EL TALENTO LOCAL</Alert.Heading>
-                    <p>
-                        Te redigiremos a un formulario para que puedas rellenar y confirmar tu asistencia al evento
-                    </p>
-                    <hr />
-                    <p className="mb-0">
-                        Tu número de ID es muy importante en este proceso, es tu identificación en el evento!
-                    </p>
-                    <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExeDYwZm14MHlneHNodzVqMDN3dzYzazJvMTZyeGRxZmNzOTFydDY0aCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/sSgvbe1m3n93G/giphy.gif" alt="Gracias" />
-                </Alert>
-            )}
+            <Modal show={showAlert} onHide={() => setShowAlert(false)} centered>
+    <Modal.Body>
+        <div className="alert-container"> {/* Nuevo div contenedor */}
+            <Alert variant="success">
+                <Alert.Heading className="titulo">GRACIAS POR APOYAR EL TALENTO LOCAL</Alert.Heading>
+                <p className="texto2">Te redigiremos a un formulario para que puedas rellenar y confirmar tu asistencia al evento</p>
+                <hr />
+                <img className="loading" src="https://media.tenor.com/JwPW0tw69vAAAAAi/cargando-loading.gif" alt="Gracias" />
+            </Alert>
+        </div>
+    </Modal.Body>
+</Modal>
+
         </div>
     );
 };

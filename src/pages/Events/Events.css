@@ -12,3 +12,26 @@
         border-radius: 5px;
         border: 1px solid #f5c6cb;
       }
+
+      .alert-container {
+        text-align: center;
+        margin: auto; 
+    }
+    
+    .loading{
+    width: 5em;
+    height: 5em;
+    
+    }
+
+    .texto2{
+        font-family: "Anton", sans-serif;
+        font-size: small;
+        color: white;
+        text-shadow: -1px -1px 0 #000,  
+                          1px -1px 0 #000,
+                         -1px  1px 0 #000,
+                          1px  1px 0 #000;
+        background-color: rgb(166, 232, 254);
+        
+    }
