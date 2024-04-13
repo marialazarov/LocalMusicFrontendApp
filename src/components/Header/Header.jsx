@@ -27,7 +27,7 @@ export const Header = () => {
   } // para borrar los tokens y los datos del usuario una vez hace click en logout
 
   return (
-    <Navbar collapseOnSelect expand="lg"  className="bg-body-tertiary" id='yuju'>
+    <Navbar collapseOnSelect expand="lg"  className="bg-body-tertiary" style={{ width: "100%" }}>
       
         <Navbar.Brand href=""></Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />

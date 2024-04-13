@@ -56,8 +56,14 @@ export const Home = () => {
 
     return (
         <>
+        <div className="centrar">
             <h1 className="welcome">TALENTO LOCAL</h1>
-    
+           
+    <p> Registrate o entra 
+    para sumergirte en el talento  
+    de la ciudad.
+         </p>
+         </div>
             <div className="midiv">
            
                 <Form>
