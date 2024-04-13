@@ -1,5 +1,5 @@
 body{
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     display: flex;
 }
 
@@ -23,7 +23,7 @@ color: rgb(6, 6, 7);
 
 .artistas{
     display: flex;
-    background-color: white;
+    background-color:  rgb(166, 232, 254);
     flex-wrap: wrap;
     justify-content: space-around;
     
@@ -38,8 +38,18 @@ h6{
 }
 
 .artist-card{
-    background-color: rgb(15, 15, 15);
+    background-color: rgb(24, 112, 188);
     border: 4em;
     margin: 10px;
   
+}
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.buttonContainer {
+    display: flex;
+    gap: 10px; /* Espacio entre los botones */
 }

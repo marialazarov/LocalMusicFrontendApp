@@ -7,6 +7,18 @@ color: rgb(17, 16, 16);
 
 
 }
+
+body{
+
+   
+        display: flex;
+        background-color:  rgb(166, 232, 254);
+        flex-wrap: wrap;
+        justify-content: space-around;
+        
+    
+
+}
 .profilecard{
 
     text-align: center;

@@ -1,7 +1,21 @@
 .logoartista{
 margin: auto;
+margin-top: 1em;
 width: 10em;
 height: 10em;
 border-radius: 50%;
 
 }
+
+.artist-card{
+background-color: antiquewhite;
+border-radius: 10%;
+
+}
+
+.profilecard1{
+    text-align: center;
+    background-color: rgb(166, 232, 254);
+    border-radius: 50em;
+}    
+

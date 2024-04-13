@@ -3,9 +3,12 @@ import "./Artist.css";
 import { ArtistCard } from "../../components/ArtistCard/ArtistCard";
 import { useNavigate } from "react-router-dom";
 import { bringAllArtists } from "../../services/apicall";
+import Button from 'react-bootstrap/Button';
 
 export const Artist = () => {
     const [artists, setArtists] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [artistsPerPage] = useState(5); // Define el número de artistas por página
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -18,19 +21,33 @@ export const Artist = () => {
 
     const navigateToMyEvents = () => {
         navigate('/everyevent');
-      };
+    };
 
+    // Calcula el índice del último artista en la página actual
+    const indexOfLastArtist = currentPage * artistsPerPage;
+    // Calcula el índice del primer artista en la página actual
+    const indexOfFirstArtist = indexOfLastArtist - artistsPerPage;
+    // Obtiene los artistas de la página actual
+    const currentArtists = artists.slice(indexOfFirstArtist, indexOfLastArtist);
 
-   // const viewArtistDetail = (artistId) => {
-    //    navigate('/everyevent');
-   // };
+    // Cambia la página
+    const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
     return (
         <div>
+               <div className="pagination">
+                {artists.length > 0 && (
+                    <div className="buttonContainer">
+                        {Array.from({ length: Math.ceil(artists.length / artistsPerPage) }, (_, i) => (
+                            <Button key={i + 1} className="pagination-button" onClick={() => paginate(i + 1)}>{i + 1}</Button>
+                        ))}
+                    </div>
+                )}
+            </div>
             <div className="artistas">
-                {artists.length > 0 ? (
-                    artists.map((artist) => (
-                        <div key={artist.id} className="artist-card" onClick={() => viewArtistDetail(artist.id)}>
+                {currentArtists.length > 0 ? (
+                    currentArtists.map((artist) => (
+                        <div key={artist.id} className="artist-card" onClick={() => navigateToMyEvents()}>
                             <ArtistCard
                                 id={artist.id}
                                 name={artist.name}
@@ -44,6 +61,7 @@ export const Artist = () => {
                     <p>No hay artistas disponibles.</p>
                 )}
             </div>
+    
         </div>
     );
 };
