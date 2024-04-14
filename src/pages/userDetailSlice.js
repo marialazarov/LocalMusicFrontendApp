@@ -3,14 +3,14 @@ import { createSlice } from "@reduxjs/toolkit";
 export const userDetailSlice = createSlice({
   name: "userDetail",
   initialState: {
-    _id: null
+    _id: null,
   },
   reducers: {
     viewUserDetail: (state, action) => {
-        return {
-            _id: action.payload
-        }
-    }
+      return {
+        _id: action.payload,
+      };
+    },
   },
 });
 

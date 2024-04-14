@@ -6,8 +6,7 @@ import './Events.css';
 import Button from 'react-bootstrap/Button';
 import Alert from 'react-bootstrap/Alert';
 import Modal from 'react-bootstrap/Modal';
-import { Icon } from "@iconify/react";
-import { Col, Row } from "react-bootstrap"; 
+import { Col, Row } from "react-bootstrap";
 
 export const Events = () => {
     const [events, setEvents] = useState([]);
@@ -39,13 +38,13 @@ export const Events = () => {
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
     return (
-        <div className="container"> 
+        <div className="container">
             <h1 className="titulo"> TODOS LOS EVENTOS PRÓXIMOS</h1>
-           
-            <Row xs={1} md={2} lg={3} xl={4} > 
+
+            <Row xs={1} md={2} lg={3} xl={4} >
                 {events.length > 0 ? (
                     events.map((event) => (
-                        <Col key={event.id} style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}> {/* Agregar un margen inferior */}
+                        <Col key={event.id} style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}> 
                             <EventCard
                                 date={event.date}
                                 location={event.location}
@@ -69,7 +68,7 @@ export const Events = () => {
             </div>
             <Modal show={showAlert} onHide={() => setShowAlert(false)} centered>
                 <Modal.Body>
-                    <div className="alert-container"> 
+                    <div className="alert-container">
                         <Alert variant="success">
                             <Alert.Heading className="titulo">GRACIAS POR APOYAR EL TALENTO LOCAL</Alert.Heading>
                             <p className="texto2">Te redigiremos a un formulario para que puedas rellenar y confirmar tu asistencia al evento</p>

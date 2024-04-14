@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { userData1 } from "../userSlice";
 import { bringEventById } from "../../services/apicall";
 import './MyEvents.css'
 import Card from 'react-bootstrap/Card';
-import { Row, Col } from "react-bootstrap"; // Importa Row y Col de react-bootstrap
+import { Row, Col } from "react-bootstrap"; 
 
 export const MyEvents = () => {
     const [userEvents, setUserEvents] = useState([]);
@@ -49,7 +49,7 @@ export const MyEvents = () => {
                                         <Card.Text>
                                             <p className="p1">Fecha: {formatDate(event.date)}</p>
                                             <p className="p1">Hora: {event.location}</p>
-                                            <p className="p2"> No olvides tu número de ID <br/>¡Pásalo bien! </p>
+                                            <p className="p2"> No olvides tu número de ID <br />¡Pásalo bien! </p>
                                         </Card.Text>
                                     </Card.Body>
                                 </Card>
@@ -57,7 +57,8 @@ export const MyEvents = () => {
                         ))}
                     </Row>
                 ) : (
-                    <p className="p">No hay eventos disponibles para este usuario.</p>
+                   
+                    <p className="p">No hay eventos disponibles para este usuario.</p> 
                 )}
             </div>
         </>

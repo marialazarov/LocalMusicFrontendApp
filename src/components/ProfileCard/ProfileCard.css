@@ -1,57 +1,40 @@
-.link{
-text-decoration:none;
-pointer-events: stroke;
-;
-font-family: "Anton", sans-serif;
-color: rgb(17, 16, 16);
-
-
+.link {
+  text-decoration: none;
+  pointer-events: stroke;
+  font-family: "Anton", sans-serif;
+  color: rgb(17, 16, 16);
 }
 
-body{
-
-   
-        display: flex;
-        background-color:  rgb(166, 232, 254);
-        flex-wrap: wrap;
-        justify-content: space-around;
-        
-    
-
+body {
+  display: flex;
+  background-color: rgb(166, 232, 254);
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
-.profilecard{
-
-    text-align: center;
-background-color: rgb(166, 232, 254);
-
+.profilecard {
+  text-align: center;
+  background-color: rgb(166, 232, 254);
 }
 
-
-
-.username{
-    text-align: center;
-font-family: "Anton", sans-serif;
-font-size: small;
-color: white;
-text-shadow: -1px -1px 0 #000,  
-                  1px -1px 0 #000,
-                 -1px  1px 0 #000,
-                  1px  1px 0 #000;
-background-color: rgb(166, 232, 254);
-
+.username {
+  text-align: center;
+  font-family: "Anton", sans-serif;
+  font-size: small;
+  color: white;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+  background-color: rgb(166, 232, 254);
 }
-.text{
-font-size: medium;
-width: 15em;
-height: 10em;
-color: rgb(255, 255, 255);
-text-shadow: -1px -1px 0 #000,  
-                  1px -1px 0 #000,
-                 -1px  1px 0 #000,
-                  1px  1px 0 #000;
+.text {
+  font-size: medium;
+  width: 15em;
+  height: 10em;
+  color: rgb(255, 255, 255);
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
 }
 
-h1{
-font-size: medium;
- font-family: "Anton", sans-serif;
+h1 {
+  font-size: medium;
+  font-family: "Anton", sans-serif;
 }

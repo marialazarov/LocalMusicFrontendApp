@@ -1,60 +1,58 @@
-body{
-    background-color: rgb(255, 255, 255);
-    display: flex;
+body {
+  background-color: rgb(255, 255, 255);
+  display: flex;
 
-    width: 100%;
-}
-
-.logo{
-    margin-top: 4em;
-    height: auto;
+  width: 100%;
 }
 
-.midiv{
-    display: flex;
-    flex-direction: column;
-    height: 50vh;
-    width: 50vw;
-    background-color: rgb(255, 252, 252)(255, 1, 1);
-    margin: auto;
+.logo {
+  margin-top: 4em;
+  height: auto;
 }
 
-.titulo2{
-    margin-top: 1em;
-    font-size: large;
-    font-family: "Honk", system-ui;
-    color: rgb(240, 240, 255);
+.midiv {
+  display: flex;
+  flex-direction: column;
+  height: 50vh;
+  width: 50vw;
+  background-color: rgb(255, 252, 252) (255, 1, 1);
+  margin: auto;
 }
 
-.artistas{
-    display: flex;
-    background-color:  rgb(166, 232, 254);
-    flex-wrap: wrap;
-    justify-content: space-around;
-    
-}
-h4{
-    font-family: Arial, Helvetica, sans-serif;
-    color: rgb(254, 244, 244);
-}
-h6{
-    font-family: Arial, Helvetica, sans-serif;
-    color: rgb(252, 61, 61);
+.titulo2 {
+  margin-top: 1em;
+  font-size: large;
+  font-family: "Honk", system-ui;
+  color: rgb(240, 240, 255);
 }
 
-.artist-card{
-    background-color: rgb(24, 112, 188);
-    border: 4em;
-    margin: 10px;
-  
+.artistas {
+  display: flex;
+  background-color: rgb(166, 232, 254);
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+h4 {
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(254, 244, 244);
+}
+h6 {
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(252, 61, 61);
+}
+
+.artist-card {
+  background-color: rgb(24, 112, 188);
+  border: 4em;
+  margin: 10px;
 }
 .pagination {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 .buttonContainer {
-    display: flex;
-    gap: 10px;
+  display: flex;
+  gap: 10px;
 }

@@ -4,9 +4,9 @@ import { useNavigate } from "react-router-dom";
 import { bringAllUsers, deleteUser } from "../../services/apicall";
 import { userData1 } from "../userSlice";
 import UserCard from "../../components/UserCard/UserCard";
-import './Admin.css'
-import { Modal, Button, InputGroup, FormControl } from "react-bootstrap"; // Importa Modal y Button de react-bootstrap
+import { Modal, Button, InputGroup, FormControl } from "react-bootstrap";
 import { Icon } from "@iconify/react";
+import './Admin.css';
 
 export const Admin = () => {
     const [users, setUsers] = useState([]);
@@ -14,8 +14,8 @@ export const Admin = () => {
     const [usersSkip, setUsersSkip] = useState(3);
     const [usersCount, setUsersCount] = useState();
     const [searchTerm, setSearchTerm] = useState("");
-    const [showDeleteModal, setShowDeleteModal] = useState(false); // Nuevo estado para controlar la visibilidad del modal
-    const [userIdToDelete, setUserIdToDelete] = useState(null); // Nuevo estado para almacenar el ID del usuario a eliminar
+    const [showDeleteModal, setShowDeleteModal] = useState(false);
+    const [userIdToDelete, setUserIdToDelete] = useState(null);
     const dispatch = useDispatch();
     const userRdxData = useSelector(userData1);
     const token = userRdxData.token;
@@ -23,16 +23,16 @@ export const Admin = () => {
     const navigate = useNavigate();
 
     const handleDeleteUser = async (id) => {
-        setShowDeleteModal(true); // Abrir modal de confirmación
-        setUserIdToDelete(id); // Almacenar el ID del usuario a eliminar
+        setShowDeleteModal(true);
+        setUserIdToDelete(id);
     };
 
     const confirmDeleteUser = async () => {
         try {
-            await deleteUser(token, userIdToDelete); // Eliminar el usuario
-            const updatedUsers = users.filter(user => user.id !== userIdToDelete); // Filtrar los usuarios para excluir al eliminado
+            await deleteUser(token, userIdToDelete);
+            const updatedUsers = users.filter(user => user.id !== userIdToDelete);
             setUsers(updatedUsers);
-            setShowDeleteModal(false); // Cerrar modal de confirmación
+            setShowDeleteModal(false);
         } catch (error) {
             console.error("Error al eliminar el usuario:", error);
         }
@@ -78,7 +78,7 @@ export const Admin = () => {
 
     return (
         <div className="adminDesign">
-         <InputGroup className="mb-3">
+            <InputGroup className="mb-3">
                 <FormControl
                     placeholder="Buscar por nombre de usuario"
                     aria-label="Buscar por nombre de usuario"
@@ -88,28 +88,28 @@ export const Admin = () => {
                 />
                 <Button variant="outline-secondary"><Icon icon="bi:search-heart" /></Button>
             </InputGroup>
-            <div className="userList">
+            <div className="userList row row-cols-1 row-cols-md-2 row-cols-lg-3">
                 {filteredUsers.length > 0 ? (
                     filteredUsers.map((user) => (
-                        <UserCard
-                            key={user.id}
-                            id={user.id}
-                            name={user.name}
-                            username={user.username}
-                            email={user.email}
-                            deleteUserHandler={handleDeleteUser}
-                        />
+                        <div key={user.id} className="col mb-4">
+                            <UserCard
+                                id={user.id}
+                                name={user.name}
+                                username={user.username}
+                                email={user.email}
+                                deleteUserHandler={handleDeleteUser}
+                            />
+                        </div>
                     ))
                 ) : (
-                    <p>No se encontraron usuarios</p>
+                    <p className="p">No se encontraron usuarios</p>
                 )}
             </div>
-            {/* Agrega los botones prev y next */}
+          
             <div>
-                <button onClick={buttonHandlerPrev} disabled={usersPage <= 1}>Prev</button>
-                <button onClick={buttonHandlerNext} disabled={usersPage * usersSkip >= usersCount}>Next</button>
+              
             </div>
-            {/* Modal de confirmación de eliminación */}
+           
             <Modal show={showDeleteModal} onHide={() => setShowDeleteModal(false)} centered>
                 <Modal.Body>¿Estás seguro de que deseas eliminar este usuario?</Modal.Body>
                 <Modal.Footer>
@@ -117,9 +117,13 @@ export const Admin = () => {
                     <Button variant="danger" onClick={confirmDeleteUser}>Eliminar</Button>
                 </Modal.Footer>
             </Modal>
+
+            <div className="botones">
+                <Button className="botonadmin" onClick={buttonHandlerPrev} variant="light" disabled={usersPage <= 1}><Icon icon="whh:squareprevious" /></Button>
+                <Button className="botonadmin" onClick={buttonHandlerNext} variant="light" disabled={usersPage * usersSkip >= usersCount}><Icon icon="wpf:last" /></Button>
+            </div>
         </div>
     );
 };
 
 export default Admin;
-

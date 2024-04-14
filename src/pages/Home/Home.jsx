@@ -5,16 +5,19 @@ import { useDispatch, useSelector } from "react-redux";
 import { login, userData1 } from "../userSlice";
 import { useNavigate } from "react-router-dom";
 import { userLogin } from "../../services/apicall";
-import { CustomInput } from "../../components/CustomInput/CustomInput";
-import Button from 'react-bootstrap/Button'; // Importar el componente Button de Bootstrap
-import Form from 'react-bootstrap/Form'; // Importar el componente Form de Bootstrap
+import Button from 'react-bootstrap/Button'; 
+import Form from 'react-bootstrap/Form';
 import { Icon } from "@iconify/react";
 import './Home.css'
+
+
+
+
 //VISTA login
 export const Home = () => {
     const [artists, setArtists] = useState([]);
     const [userData, setUserData] = useState({
-        email: "", 
+        email: "",
         password: "",
     });
 
@@ -43,12 +46,12 @@ export const Home = () => {
             dispatch(login(data))
             navigate('/profile')
         })
-        .catch((err) => console.error('ha ocurrido un error', err))
+            .catch((err) => console.error('ha ocurrido un error', err))
     };
-   
+
 
     useEffect(() => {
-       
+
     }, [artists]);
 
     useEffect(() => {
@@ -56,47 +59,47 @@ export const Home = () => {
 
     return (
         <>
-        <div className="centrar">
-            <h1 className="welcome">TALENTO LOCAL</h1>
-           
-    <p> Registrate o entra 
-    para sumergirte en el talento  
-    de la ciudad.
-         </p>
-         </div>
+            <div className="centrar">
+                <h1 className="welcome">TALENTO LOCAL</h1>
+
+                <p> Registrate o entra
+                    para sumergirte en el talento
+                    de la ciudad.
+                </p>
+            </div>
             <div className="midiv">
-           
+
                 <Form>
-                <div className="midiv">
-                    <Form.Group className="mb-3" controlId="formGroupEmail">
-                        
-                        <Form.Control 
-                            type="email" 
-                            placeholder="Enter email" 
-                            name="email" 
-                            value={userData.email} 
-                            onChange={inputHandler} 
-                        />
-                    </Form.Group>
-                    <Form.Group className="mb-3" controlId="formGroupPassword">
-                       
-                        <Form.Control 
-                            type="password" 
-                            placeholder="Password" 
-                            name="password" 
-                            value={userData.password} 
-                            onChange={inputHandler} 
-                        />
-                    </Form.Group>
-                    
-                    <Button className="botonmicro"       variant="light"  onClick={buttonHandler}>
-                    <Icon icon="icon-park-solid:entertainment" />
-                   
-                </Button>
+                    <div className="midiv">
+                        <Form.Group className="mb-3" controlId="formGroupEmail">
+
+                            <Form.Control
+                                type="email"
+                                placeholder="Enter email"
+                                name="email"
+                                value={userData.email}
+                                onChange={inputHandler}
+                            />
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="formGroupPassword">
+
+                            <Form.Control
+                                type="password"
+                                placeholder="Password"
+                                name="password"
+                                value={userData.password}
+                                onChange={inputHandler}
+                            />
+                        </Form.Group>
+
+                        <Button className="botonmicro" variant="light" onClick={buttonHandler}>
+                            <Icon icon="icon-park-solid:entertainment" />
+
+                        </Button>
                     </div>
                 </Form>
 
-              
+
             </div>
         </>
     );

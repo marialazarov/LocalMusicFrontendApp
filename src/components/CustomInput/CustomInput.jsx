@@ -1,9 +1,8 @@
-export const CustomInput = ({placeholder,type, name, handler}) => {
+export const CustomInput = ({ placeholder, type, name, handler }) => {
 
     return (
-      
-      <input placeholder={placeholder} type={type} name={name} onChange={(e) => handler(e)}></input>
-      
+
+        <input placeholder={placeholder} type={type} name={name} onChange={(e) => handler(e)}></input>
+
     )
-  }
-  
+}

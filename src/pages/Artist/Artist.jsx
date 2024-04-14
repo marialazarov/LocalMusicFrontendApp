@@ -14,7 +14,7 @@ export const Artist = () => {
     useEffect(() => {
         if (artists.length === 0) {
             bringAllArtists().then((artistsData) => {
-                setArtists(artistsData.userArtistIds); // Asumiendo que los artistas están en userArtistIds
+                setArtists(artistsData.userArtistIds); 
             }).catch(error => console.error("Error al traer los artistas:", error));
         }
     }, [artists]);

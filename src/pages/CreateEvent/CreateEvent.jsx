@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { CustomInput } from "../../components/CustomInput/CustomInput";
 import { createEvent } from "../../services/apicall";
 import { useLocation, useParams, useNavigate } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
@@ -8,7 +7,7 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Icon } from "@iconify/react";
-import "./CreateEvent.css"; // Añadir archivo de estilos
+import "./CreateEvent.css"; 
 
 export const CreateEvent = () => {
     const dataevent = useLocation(); // Obtiene la ubicación actual
@@ -33,7 +32,7 @@ export const CreateEvent = () => {
             console.error("Error al registrar el evento:", error);
         }
     };
-
+    console.log(dataevent.state.eventData.user_id)
     const inputHandler = (event) => {
         setArtistId(event.target.value);
     };

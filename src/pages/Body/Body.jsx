@@ -18,7 +18,7 @@ export const Body = () => {
     return (
         <>
             <Routes>
-                <Route path="*" element= {<Navigate to="/" />} />
+                <Route path="*" element={<Navigate to="/" />} />
                 <Route path='/' element={<Home />} />
                 <Route path='/register' element={<Register />} />
                 <Route path='/profile' element={<Profile />} />
@@ -26,16 +26,16 @@ export const Body = () => {
                 <Route path='/admin' element={<Admin />}></Route>
                 <Route path='/everyEvent' element={<Events />}></Route>
                 <Route path='/myEvents' element={<MyEvents />}
-                
-                 ></Route>
-                    <Route
-        path="/createEvent/:eventId" // Define el path con un parámetro dinámico :eventId
-        element={<CreateEvent />} // Renderiza el componente CreateEvent cuando se acceda a esta ruta
-      />
-                
-               
-            
-        
+
+                ></Route>
+                <Route
+                    path="/createEvent/:eventId" // Define el path con un parámetro dinámico :eventId
+                    element={<CreateEvent />} 
+                />
+
+
+
+
             </Routes>
 
 

@@ -30,6 +30,7 @@ border-color: rgb(254, 183, 183);
 .event-card{
     text-align: center;
  height: 19em;
+
 }
 .eventList{
     
@@ -59,8 +60,18 @@ text-align: center;
 
 
 }
-.p1{
+.centrar{
+text-align: center;
 
+}
+
+.container{
+text-align: center;
+
+}
+
+.p1{
+  
     margin-top: 3em;
     font-family: "Anton", sans-serif;
     font-size: small;

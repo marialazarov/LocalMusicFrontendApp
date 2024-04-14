@@ -18,7 +18,7 @@ const EventCard = ({ artist_id, location, date, handler }) => {
                 <Card.Title><h1>{location}</h1></Card.Title>
                 <Card.Title><h1>{formatDate(date)}</h1></Card.Title>
                 <Card.Title><h1>ARTIST ID: {artist_id}</h1></Card.Title>
-                <CardText className='text' > Si quieres apoyar este artista<br/>¡No te lo pierdas en directo!</CardText>
+                <CardText className='text' > Si quieres apoyar este artista<br />¡No te lo pierdas en directo!</CardText>
                 <Button className='boton3' variant='light' onClick={handler}>Asistir al evento</Button>
             </Card.Body>
         </Card>

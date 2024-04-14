@@ -1,67 +1,61 @@
 .create-event-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .registro-evento {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
 }
 
 .registration-success-popup {
-    background-color: #111111;
-    color: #fff;
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    text-align: center;
+  background-color: #111111;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 .location {
-    font-size: 24px;
-    font-weight: bold;
+  font-size: 24px;
+  font-weight: bold;
 }
 
 .date {
-    font-size: 20px;
-    font-weight: bold;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .input-label {
-    margin-bottom: em;
+  margin-bottom: em;
   margin: auto;
   margin-bottom: 1em;
-    width: 10em;
-    font-family: "Anton", sans-serif;
-    font-size: small;
-    color: white;
-    text-shadow: -1px -1px 0 #000,  
-                      1px -1px 0 #000,
-                     -1px  1px 0 #000,
-                      1px  1px 0 #000;
-
-    
+  width: 10em;
+  font-family: "Anton", sans-serif;
+  font-size: small;
+  color: white;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
 }
 
 .submit-button {
-    margin-top: 20px;
+  margin-top: 20px;
   margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
- 
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-body{
-    width: 100%;
-    
-    }
-.tituloevento{
-    margin-top: 2em;
-    font-size: large;
-    font-family: "Honk", system-ui;
+body {
+  width: 100%;
+}
+.tituloevento {
+  margin-top: 2em;
+  font-size: large;
+  font-family: "Honk", system-ui;
 }

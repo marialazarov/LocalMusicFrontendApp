@@ -1,11 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 import './Profile.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { logout, updateUserData, userData1 } from '../userSlice';
-import { bringUserById, updateProfile } from '../../services/apicall';
+import {  updateUserData, userData1 } from '../userSlice';
+import {  updateProfile } from '../../services/apicall';
 import { useEffect, useState } from 'react';
-import Card from 'react-bootstrap/Card';
-import ListGroup from 'react-bootstrap/ListGroup';
+
 import ProfileCard from '../../components/ProfileCard/ProfileCard';
 import Button from 'react-bootstrap/Button';
 import { Icon } from '@iconify/react';
