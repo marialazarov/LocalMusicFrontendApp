@@ -62,12 +62,14 @@ export const CreateEvent = () => {
                     <Row className="mb-2">
                         <Col md="12">
                             <h3 className="input-label">Ingresa el número de ID del artista del evento al que quieres asistir:</h3>
-                            <CustomInput
-                                placeholder="ID del Artista"
-                                type="number"
-                                value={artist_id}
-                                handler={inputHandler}
-                            />
+                            <Form.Group className="mb-3" controlId="formBasicEmail">
+                                <Form.Control
+                                    type="number"
+                                    placeholder="ID del Artista"
+                                    value={artist_id}
+                                    onChange={inputHandler}
+                                />
+                            </Form.Group>
                         </Col>
                     </Row>
                     <Row className="mb-2">

@@ -4,7 +4,15 @@ font-family: "Honk", system-ui;
 }
 
 .profilecard2{
+
+    display: flex;
+    justify-content: center;
 text-align: center;
 
 
+}
+
+.text{
+
+font-size: small;
 }

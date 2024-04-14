@@ -7,6 +7,7 @@ import Button from 'react-bootstrap/Button';
 import Alert from 'react-bootstrap/Alert';
 import Modal from 'react-bootstrap/Modal';
 import { Icon } from "@iconify/react";
+import { Col, Row } from "react-bootstrap"; // Importa Col y Row de react-bootstrap
 
 export const Events = () => {
     const [events, setEvents] = useState([]);
@@ -34,35 +35,29 @@ export const Events = () => {
         }, 8000);
     };
 
-    // Calcula el índice del último evento en la página actual
-    const indexOfLastEvent = currentPage * eventsPerPage;
-    // Calcula el índice del primer evento en la página actual
-    const indexOfFirstEvent = indexOfLastEvent - eventsPerPage;
-    // Obtiene los eventos de la página actual
-    const currentEvents = events.slice(indexOfFirstEvent, indexOfLastEvent);
-
     // Cambia la página
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
     return (
-        <div>
+        <div className="container"> 
             <h1 className="titulo"> TODOS LOS EVENTOS PRÓXIMOS</h1>
-            <div className="events">
-                {currentEvents.length > 0 ? (
-                    currentEvents.map((event) => (
-                        <div key={event.id} className="event-card">
+           
+            <Row xs={1} md={2} lg={3} xl={4} > {/* Utiliza el componente Row de Bootstrap y establece el número de columnas por fila para diferentes tamaños de pantalla */}
+                {events.length > 0 ? (
+                    events.map((event) => (
+                        <Col key={event.id} style={{ display: 'flex', justifyContent: 'center' }}> {/* Añade estilos para centrar */}
                             <EventCard
                                 date={event.date}
                                 location={event.location}
                                 artist_id={event.artist_id}
                                 handler={() => showAlertAndRedirect(event.id, event)}
                             />
-                        </div>
+                        </Col>
                     ))
                 ) : (
                     <p>No hay eventos disponibles.</p>
                 )}
-            </div>
+            </Row>
             <div className="pagination">
                 {events.length > 0 && (
                     <div className="buttonContainer">

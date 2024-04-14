@@ -56,6 +56,10 @@
  
 }
 
+body{
+    width: 100%;
+    
+    }
 .tituloevento{
     margin-top: 2em;
     font-size: large;

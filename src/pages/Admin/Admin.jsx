@@ -8,7 +8,7 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import Form from 'react-bootstrap/Form';
 import { Icon } from "@iconify/react";
 import './Admin.css'
-import { Button, FormControl } from "react-bootstrap";
+import { Button, FormControl, Row, Col } from "react-bootstrap"; // Importa Row y Col de react-bootstrap
 
 export const Admin = () => {
     const [users, setUsers] = useState([]);
@@ -88,19 +88,21 @@ export const Admin = () => {
                     <Button variant="outline-secondary"><Icon icon="bi:search-heart" /></Button>
                
             </InputGroup>
-            <div className="userList">
+            <Row> {/* Utiliza el componente Row de Bootstrap */}
                 {filteredUsers.length > 0 ? (
                     filteredUsers.map((user) => (
-                        <UserCard
-                            key={user.id}
-                            username={user.username}
-                            deleteUserHandler={handleDeleteUser}
-                        />
+                        <Col key={user.id} xs={12} md={6} lg={4}> {/* Utiliza el componente Col de Bootstrap para las columnas */}
+                            <UserCard
+                                key={user.id}
+                                username={user.username}
+                                deleteUserHandler={handleDeleteUser}
+                            />
+                        </Col>
                     ))
                 ) : (
                     <p>No se encontraron usuarios</p>
                 )}
-            </div>
+            </Row>
            
             <div className="botones">
                 <Button className="botonadmin" onClick={buttonHandlerPrev} variant="light" disabled={usersPage <= 1}><Icon icon="whh:squareprevious" /></Button>

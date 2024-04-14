@@ -1,6 +1,8 @@
 body{
     background-color: rgb(255, 255, 255);
     display: flex;
+
+    width: 100%;
 }
 
 .logo{
@@ -54,5 +56,5 @@ h6{
 
 .buttonContainer {
     display: flex;
-    gap: 10px; /* Espacio entre los botones */
+    gap: 10px;
 }

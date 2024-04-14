@@ -1,0 +1,72 @@
+.h2{
+
+    margin-top: auto;
+        font-size: xx-large;
+    font-family: "Honk", system-ui;
+    color: rgb(255, 255, 255);
+
+}
+
+.eventos{
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+.card-container{
+text-align: center;
+margin-top: 5em;
+height: 19em;
+width: 20em
+;
+border-style:double;
+
+border-color: rgb(254, 183, 183);
+}
+
+.event-card{
+    text-align: center;
+ height: 19em;
+}
+.eventList{
+    
+    margin-top: 3em;
+    font-family: "Anton", sans-serif;
+    font-size: medium;
+    color: white;
+    text-shadow: -1px -1px 0 #000,  
+                      1px -1px 0 #000,
+                     -1px  1px 0 #000,
+                      1px  1px 0 #000;
+   
+}
+
+
+.txto{
+
+text-align: center;
+}
+
+.p2{
+    margin-top: 3em;
+    font-family: "Anton", sans-serif;
+    font-size: medium;
+    color: rgb(255, 125, 125);
+   
+
+
+}
+.p1{
+
+    margin-top: 3em;
+    font-family: "Anton", sans-serif;
+    font-size: small;
+    color: white;
+    text-shadow: -1px -1px 0 #000,  
+                      1px -1px 0 #000,
+                     -1px  1px 0 #000,
+                      1px  1px 0 #000;
+}
+

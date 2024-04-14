@@ -13,6 +13,10 @@
         border: 1px solid #f5c6cb;
       }
 
+      body{
+        width: 100%;
+        
+        }
       .alert-container {
         text-align: center;
         margin: auto; 

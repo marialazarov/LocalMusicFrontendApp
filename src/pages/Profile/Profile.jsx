@@ -9,6 +9,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import ProfileCard from '../../components/ProfileCard/ProfileCard';
 import Button from 'react-bootstrap/Button';
 import { Icon } from '@iconify/react';
+
 export const Profile = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -65,11 +66,18 @@ export const Profile = () => {
     };
 
     const navigateToMyEvents = () => {
-        navigate('/everyevent');
+        navigate('/myevents');
     };
 
     return (
         <div className="profileDesign">
+            <div className='editarperfil1'>
+                {!showUpdateProfile && (
+                    <Button className="editarperfil" variant="light" onClick={() => setShowUpdateProfile(true)}>
+                        <Icon icon="bx:edit" />
+                    </Button>
+                )}
+            </div>
             <ProfileCard
                 name={decoded.name}
                 username={decoded.username}
@@ -95,13 +103,6 @@ export const Profile = () => {
                     </div>
                 </div>
             )}
-            <div>
-                {!showUpdateProfile && (
-                    <Button className="editarperfil" variant="light" onClick={() => setShowUpdateProfile(true)}>
-                        <Icon icon="bx:edit" />
-                    </Button>
-                )}
-            </div>
         </div>
     );
 };
