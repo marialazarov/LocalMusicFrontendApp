@@ -4,7 +4,11 @@ import { useNavigate } from "react-router-dom";
 import { bringAllUsers, deleteUser } from "../../services/apicall";
 import { userData1 } from "../userSlice";
 import UserCard from "../../components/UserCard/UserCard";
+import InputGroup from 'react-bootstrap/InputGroup';
+import Form from 'react-bootstrap/Form';
+import { Icon } from "@iconify/react";
 import './Admin.css'
+import { Button, FormControl } from "react-bootstrap";
 
 export const Admin = () => {
     const [users, setUsers] = useState([]);
@@ -43,7 +47,7 @@ export const Admin = () => {
             });
         }
        
-    }, [decoded, token, usersPage, usersSkip, navigate]); // Añade dependencias faltantes
+    }, [decoded, token, usersPage, usersSkip, navigate]);
 
     const getUsersPaginated = async (page, skip) => {
         const res = await bringAllUsers(token, page, skip);
@@ -72,22 +76,24 @@ export const Admin = () => {
 
     return (
         <div className="adminDesign">
-            <input className="buscador"
-                type="text"
-                placeholder="Buscar por nombre de usuario"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-            />
+            <InputGroup className="mb-3">
+                <FormControl
+                    placeholder="Buscar por nombre de usuario"
+                    aria-label="Buscar por nombre de usuario"
+                    aria-describedby="basic-addon2"
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                />
+                
+                    <Button variant="outline-secondary"><Icon icon="bi:search-heart" /></Button>
+               
+            </InputGroup>
             <div className="userList">
                 {filteredUsers.length > 0 ? (
-                    filteredUsers
-                    .map((user) => (
+                    filteredUsers.map((user) => (
                         <UserCard
                             key={user.id}
-                            id={user.id}
-                            name={user.name}
                             username={user.username}
-                            email={user.email}
                             deleteUserHandler={handleDeleteUser}
                         />
                     ))
@@ -95,10 +101,10 @@ export const Admin = () => {
                     <p>No se encontraron usuarios</p>
                 )}
             </div>
-            {/* Agrega los botones prev y next */}
-            <div>
-                <button onClick={buttonHandlerPrev} disabled={usersPage <= 1}>Prev</button>
-                <button onClick={buttonHandlerNext} disabled={usersPage * usersSkip >= usersCount}>Next</button>
+           
+            <div className="botones">
+                <Button className="botonadmin" onClick={buttonHandlerPrev} variant="light" disabled={usersPage <= 1}><Icon icon="whh:squareprevious" /></Button>
+                <Button className="botonadmin" onClick={buttonHandlerNext} variant="light" disabled={usersPage * usersSkip >= usersCount}><Icon icon="wpf:last" /></Button>
             </div>
         </div>
     );

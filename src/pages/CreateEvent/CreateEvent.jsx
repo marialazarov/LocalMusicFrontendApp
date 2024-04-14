@@ -28,7 +28,7 @@ export const CreateEvent = () => {
             setRegistrationSuccess(true);
             setTimeout(() => {
                 navigate("/");
-            }, 5000);
+            }, 3000);
         } catch (error) {
             console.error("Error al registrar el evento:", error);
         }

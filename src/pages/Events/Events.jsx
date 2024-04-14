@@ -28,7 +28,7 @@ export const Events = () => {
         setTimeout(() => {
             setShowAlert(false); // Oculta la alerta después de 6 segundos
             navigate(`/createEvent/${eventId}`, { state: { eventData } }); // Redirige a la página de creación de eventos con los datos del evento
-        }, 6000);
+        }, 8000);
     };
 
     // Calcula el índice del último evento en la página actual

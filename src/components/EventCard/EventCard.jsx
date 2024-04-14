@@ -13,7 +13,7 @@ const UserCard = ({ artist_id,location, date, handler}) => {
         <Card.Title><h1>{date}</h1></Card.Title>
         <Card.Title><h1>ARTIST ID: {artist_id}</h1></Card.Title>
         <CardText className='text' > Si quieres apoyar este artista<br/>¡No te lo pierdas en directo!</CardText>
-        <Button className='boton3' variant='dark' onClick={handler}>Asistir al evento</Button>
+        <Button className='boton3' variant='light' onClick={handler}>Asistir al evento</Button>
     
 
       </Card.Body>
