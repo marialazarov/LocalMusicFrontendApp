@@ -18,7 +18,10 @@ export const Events = () => {
     useEffect(() => {
         if (events.length === 0) {
             bringAllEvents().then((eventsData) => {
-                setEvents(eventsData); // Asumiendo que los eventos están en un array directamente
+                // Filtrar eventos para mostrar solo uno por artist_id
+                const uniqueEvents = Array.from(new Set(eventsData.map(event => event.artist_id)))
+                    .map(artistId => eventsData.find(event => event.artist_id === artistId));
+                setEvents(uniqueEvents);
             }).catch(error => console.error("Error al traer los eventos:", error));
         }
     }, [events]);
@@ -70,18 +73,17 @@ export const Events = () => {
                 )}
             </div>
             <Modal show={showAlert} onHide={() => setShowAlert(false)} centered>
-    <Modal.Body>
-        <div className="alert-container"> {/* Nuevo div contenedor */}
-            <Alert variant="success">
-                <Alert.Heading className="titulo">GRACIAS POR APOYAR EL TALENTO LOCAL</Alert.Heading>
-                <p className="texto2">Te redigiremos a un formulario para que puedas rellenar y confirmar tu asistencia al evento</p>
-                <hr />
-                <img className="loading" src="https://media.tenor.com/JwPW0tw69vAAAAAi/cargando-loading.gif" alt="Gracias" />
-            </Alert>
-        </div>
-    </Modal.Body>
-</Modal>
-
+                <Modal.Body>
+                    <div className="alert-container"> 
+                        <Alert variant="success">
+                            <Alert.Heading className="titulo">GRACIAS POR APOYAR EL TALENTO LOCAL</Alert.Heading>
+                            <p className="texto2">Te redigiremos a un formulario para que puedas rellenar y confirmar tu asistencia al evento</p>
+                            <hr />
+                            <img className="loading" src="https://media.tenor.com/JwPW0tw69vAAAAAi/cargando-loading.gif" alt="Gracias" />
+                        </Alert>
+                    </div>
+                </Modal.Body>
+            </Modal>
         </div>
     );
 };
