@@ -10,6 +10,7 @@
 .eventos{
     display: flex;
     margin: auto;
+    margin-top: 2em;
     justify-content: center;
     align-items: center;
     text-align: center;

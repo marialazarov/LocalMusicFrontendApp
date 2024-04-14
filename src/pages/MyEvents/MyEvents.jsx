@@ -4,6 +4,7 @@ import { userData1 } from "../userSlice";
 import { bringEventById } from "../../services/apicall";
 import './MyEvents.css'
 import Card from 'react-bootstrap/Card';
+import { Row, Col } from "react-bootstrap"; // Importa Row y Col de react-bootstrap
 
 export const MyEvents = () => {
     const [userEvents, setUserEvents] = useState([]);
@@ -39,20 +40,22 @@ export const MyEvents = () => {
         <>
             <div className="eventos">
                 {userEvents.length > 0 ? (
-                    <div className="card-container">
+                    <Row xs={1} md={2} lg={3} className="g-4">
                         {userEvents.map(event => (
-                            <Card key={event.id} className="event-card">
-                                <Card.Body className="cardbody">
-                                    <Card.Title> <h2 className="h2">Tus Eventos</h2></Card.Title>
-                                    <Card.Text className="txto">
-                                        <p className="p1">Fecha: {formatDate(event.date)}</p>
-                                        <p className="p1">Hora: {event.location}</p>
-                                        <p className="p2"> No olvides tu número de ID <br/>¡Pásalo bien! </p>
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
+                            <Col key={event.id}>
+                                <Card className="event-card">
+                                    <Card.Body>
+                                        <Card.Title> <h2 className="h2">Tus Eventos</h2></Card.Title>
+                                        <Card.Text>
+                                            <p className="p1">Fecha: {formatDate(event.date)}</p>
+                                            <p className="p1">Hora: {event.location}</p>
+                                            <p className="p2"> No olvides tu número de ID <br/>¡Pásalo bien! </p>
+                                        </Card.Text>
+                                    </Card.Body>
+                                </Card>
+                            </Col>
                         ))}
-                    </div>
+                    </Row>
                 ) : (
                     <p className="p">No hay eventos disponibles para este usuario.</p>
                 )}
